@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div style="margin: 10px auto; width: 30%;">
+        <body>
+            <h1>Login</h1>
+            {% if error_message %}
+                <p>{{ error_message }}</p>
+            {% endif %}
+            <table class="table table-striped" border="2">
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username"><br>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password"><br>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </td>
+            </table>
+        </body>
+    </div>
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {{ form.media }}
+{% endblock %}

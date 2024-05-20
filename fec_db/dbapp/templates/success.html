@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <div style="margin: 20px auto; width: 70%;">
+        <h2>Success!</h2>
+        <p>Your form has been submitted successfully.</p>
+        <button class="btn btn-outline-secondary" type="submit" >
+            <a href="{% url 'form_view' %}">Return to Form</a>
+        </button>
+
+        <button class="btn btn-outline-secondary" type="submit" >
+            <a href="{% url 'member_list' %}">Proceed to Database</a>
+        </button>
+    </div>
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {{ form.media }}
+{% endblock %}

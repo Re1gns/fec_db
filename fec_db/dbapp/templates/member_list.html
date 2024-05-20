@@ -1,0 +1,110 @@
+<!-- member_list.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Member List{% endblock %}
+
+{% block content %}
+<div style="margin: 20px auto; width: 70%;">
+    <h1 style="text-align: center;">Member List</h1>
+    <div style="margin-bottom: 10px;">
+        <form method="GET" action="{% url 'member_list' %}">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search by name or reference ID" name="query">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        <!-- Action buttons for selected members -->
+        <button type="button" class="btn btn-primary" onclick="editSelected()">Edit Selected</button>
+        <button type="button" class="btn btn-danger" onclick="deleteSelected()">Delete Selected</button>
+    </div>
+    <table class="table table-striped" border="3">
+        <thead>
+            <tr>
+                <!-- Add a checkbox for each member to enable selection -->
+                <th scope="col"><input type="checkbox" id="select-all"></th>
+                <th scope="col">Reference ID</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Timestamp</th>
+                <th scope="col">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through members and display each member's information -->
+            {% for member in members %}
+            <tr>
+                <td><input type="checkbox" class="member-checkbox" value="{{ member.pk }}"></td>
+                <td>{{ member.reference_id }}</td>
+                <td>{{ member.surname }}</td>
+                <td>{{ member.timestamp }}</td>
+                <td>{{ member.image_tag }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+</div>
+<div style="margin: 20px auto; width: 70%;">
+    <button class="btn btn-outline-secondary" type="button">
+        <a href="{% url 'form_view' %}">New Entry</a>
+    </button>
+</div>
+<script>
+   // Function to handle editing selected members
+function editSelected() {
+    // Get all selected member checkboxes
+    var checkboxes = document.getElementsByClassName("member-checkbox");
+    var selectedIds = [];
+    // Loop through checkboxes to find selected members
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            // Add selected member's ID to the list
+            selectedIds.push(checkboxes[i].value);
+        }
+    }
+    if (selectedIds.length !== 1) {
+        alert("Please select exactly one member to edit.");
+        return;
+    }
+    // Redirect to the edit view with the selected member ID as part of the URL path
+    window.location.href = "/edit/" + selectedIds[0] + "/";
+}
+
+// Function to handle deleting selected members
+function deleteSelected() {
+    // Get all selected member checkboxes
+    var checkboxes = document.getElementsByClassName("member-checkbox");
+    var selectedIds = [];
+    // Loop through checkboxes to find selected members
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            // Add selected member's ID to the list
+            selectedIds.push(checkboxes[i].value);
+        }
+    }
+    if (selectedIds.length === 0) {
+        alert("Please select at least one member to delete.");
+        return;
+    }
+    // Redirect to the delete view with the selected member IDs as query parameters
+    window.location.href = "/confirm_delete/?ids=" + selectedIds.join(",");
+}
+
+
+
+    // Function to handle selecting all members
+    document.getElementById("select-all").addEventListener("change", function () {
+        var checkboxes = document.getElementsByClassName("member-checkbox");
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = this.checked;
+        }
+    });
+</script>
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {{ form.media }}
+{% endblock %}

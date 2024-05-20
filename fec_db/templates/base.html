@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} FEC Database {% endblock %}</title>
+    <style>
+        /* Center the header */
+        header {
+            text-align: center;
+        }
+        /* Position the logo image */
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo image -->
+        <img src="{% static 'static/img/cropped-ECWA-logo.png' %}" alt="Logo" class="logo">
+
+        <!-- Header content -->
+        <h1>1st ECWA Church</h1>
+        <h3>No 66. IBRAHIM TAIWO ROAD</h3>
+        <H3>ILORIN, KWARA STATE</H3>
+    </header>
+
+    <!-- Main content -->
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

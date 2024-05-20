@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} FEC Database {% endblock %}</title>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+            <div class="container my-4">
+                <a class="navbar-brand" href="#" style="font-weight: bold; color: rgb(0, 0, 0); display: flex; align-items: center; text-align: left;">
+                    <img src="{% static 'img/cropped-ECWA-logo.png' %}" alt="Logo" class="logo" style="width: 100px; margin-left: 320px; margin-right: 10px;">
+                    <div style="text-align: center;">
+                        <h1 style="margin: 0;">1st ECWA CHURCH</h1>
+                        <h3 style="margin: 0;">No 66. IBRAHIM TAIWO ROAD</h3>
+                        <h3 style="margin: 0;">ILORIN, KWARA STATE</h3>
+                    </div>
+                </a>
+            </div>
+        </nav>
+        
+        <style>
+            
+            h1, h2, h3 {
+                margin-bottom: 5px;
+                text-align: left;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        </style>
+        
+        
+        
+    </header>
+
+    <!-- Main content -->
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

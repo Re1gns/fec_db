@@ -1,0 +1,292 @@
+<!-- edit_member.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Edit Member{% endblock %}
+
+{% block content %}
+    <div style="margin: 20px auto; width: 70%;">
+        <h1>Edit Member</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <caption><strong>Basic Information</strong></caption>
+            <table class="table table-striped" border="3" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.surname.errors }}
+                {{ form.image.errors }}
+                <tr>
+                    <td>{{ form.image.label_tag }}</td>
+                    <td>{{ form.image }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.surname.label }}</td>
+                    <td>{{ form.surname }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.other_names.label }}</td>
+                    <td>{{ form.other_names }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.sex.label }}</td>
+                    <td>{{ form.sex }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.date_of_birth.label }}</td>
+                    <td>{{ form.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.phone_number.label }}</td>
+                    <td>{{ form.phone_number }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.whatsapp_number.label }}</td>
+                    <td>{{ form.whatsapp_number }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email.label }}</td>
+                    <td>{{ form.email }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.home_address.label }}</td>
+                    <td>{{ form.home_address }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.house_fellowship_zone.label }}</td>
+                    <td>{{ form.house_fellowship_zone }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.next_of_kin.label }}</td>
+                    <td>{{ form.next_of_kin }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.next_of_kin_phone_number.label }}</td>
+                    <td>{{ form.next_of_kin_phone_number }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.home_town.label }}</td>
+                    <td>{{ form.home_town }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.state.label }}</td>
+                    <td>{{ form.state }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.lga.label }}</td>
+                    <td>{{ form.lga }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.nationality.label }}</td>
+                    <td>{{ form.nationality }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.tribe.label }}</td>
+                    <td>{{ form.tribe }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.other_languages.label }}</td>
+                    <td>{{ form.other_languages }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.close_townmate.label }}</td>
+                    <td>{{ form.close_townmate }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.townmate_phone_number.label }}</td>
+                    <td>{{ form.townmate_phone_number }}</td>
+                </tr>
+                
+            </table>
+
+            <!-- Marital Status Section -->
+            <caption><strong>Marital Status</strong></caption>
+            <table class="table table-striped" border="2" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.marital_status.errors }}
+                <tr>
+                    <td>{{ form.marital_status.label }}</td>
+                    <td>{{ form.marital_status }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.other_information.label }}</td>
+                    <td>{{ form.other_information }}</td>
+                </tr>
+
+            </table>
+            
+            <!-- Health Section -->
+            <caption><strong>Health</strong></caption>
+            <table class="table table-striped" border="2" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.blood_group.errors }}
+                <tr>
+                    <td>{{ form.blood_group.label }}</td>
+                    <td>{{ form.blood_group }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.rhesus.label }}</td>
+                    <td>{{ form.rhesus }}</td>
+                </tr>
+                
+            </table>
+            
+            <!-- Profession Section -->
+            <caption><strong>Profession</strong></caption>
+            <table class="table table-striped" border="2" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.profession_sector.errors }}
+                <tr>
+                    <td>{{ form.profession_sector.label }}</td>
+                    <td>{{ form.profession_sector }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.employed.label }}</td>
+                    <td>{{ form.employed }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.profession.label }}</td>
+                    <td>{{ form.profession }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.place_of_work.label }}</td>
+                    <td>{{ form.place_of_work }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.position_at_work.label }}</td>
+                    <td>{{ form.position_at_work }}</td>
+                    <td>{{ form.w_year.label }}</td>
+                    <td>{{ form.w_year }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.student.label }}</td>
+                    <td>{{ form.student }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.field_of_study.label }}</td>
+                    <td>{{ form.field_of_study }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.school.label }}</td>
+                    <td>{{ form.school }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.position_in_school.label }}</td>
+                    <td>{{ form.position_in_school }}</td>
+                    <td>{{ form.s_year.label }}</td>
+                    <td>{{ form.s_year }}</td>
+                </tr>
+            </table>
+            
+            <!-- Church Information Section -->
+            <caption><strong>Church Information</strong></caption>
+            <table class="table table-striped" border="2" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.baptised.errors }}
+                <tr>
+                    <td>{{ form.baptised.label }}</td>
+                    <td>{{ form.baptised }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.by_immersion.label }}</td>
+                    <td>{{ form.by_immersion }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.denomination.label }}</td>
+                    <td>{{ form.denomination }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.church_worker.label }}</td>
+                    <td>{{ form.church_worker }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.units.label }}</td>
+                    <td>{{ form.units }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.church_group.label }}</td>
+                    <td>{{ form.church_group }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.fellowship_group.label }}</td>
+                    <td>{{ form.fellowship_group }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.other_relevant_information.label }}</td>
+                    <td>{{ form.other_relevant_information }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.name_of_member_closest_to_you.label }}</td>
+                    <td>{{ form.name_of_member_closest_to_you }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.when_did_you_become_a_member_of_the_church.label }}</td>
+                    <td>{{ form.when_did_you_become_a_member_of_the_church }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.church_status.label }}</td>
+                    <td>{{ form.church_status }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.leadership_position_held1.label }}</td>
+                    <td>{{ form.leadership_position_held1 }}</td>
+                    <td>{{ form.year1.label }}</td>
+                    <td>{{ form.year1 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.leadership_position_held2.label }}</td>
+                    <td>{{ form.leadership_position_held2 }}</td>
+                    <td>{{ form.year2.label }}</td>
+                    <td>{{ form.year2 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.leadership_position_held3.label }}</td>
+                    <td>{{ form.leadership_position_held3 }}</td>
+                    <td>{{ form.year3.label }}</td>
+                    <td>{{ form.year3 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.leadership_position_held4.label }}</td>
+                    <td>{{ form.leadership_position_held4 }}</td>
+                    <td>{{ form.year4.label }}</td>
+                    <td>{{ form.year4 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.leadership_position_held5.label }}</td>
+                    <td>{{ form.leadership_position_held5 }}</td>
+                    <td>{{ form.year5.label }}</td>
+                    <td>{{ form.year5 }}</td>
+                </tr>
+            </table>
+
+            <!-- For Children Below (17) Years -->
+            <caption><strong>For Children Below (17) Years</strong></caption>
+            <table class="table table-striped" border="2" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.current_class.errors }}
+                <tr>
+                    <td>{{ form.current_class.label }}</td>
+                    <td>{{ form.current_class }}</td>
+                    <td>{{ form.current_class_year.label }}</td>
+                    <td>{{ form.current_class_year }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.current_school.label }}</td>
+                    <td>{{ form.current_school }}</td>
+                    <td>{{ form.current_school_year.label }}</td>
+                    <td>{{ form.current_school_year }}</td>
+                </tr>
+            </table>  
+            
+            <!-- For Official Use -->
+            <caption><strong>For Official Use</strong></caption>
+            <table class="table table-striped" border="2" style="margin-bottom: 20px; width: 100%; border-color: navy;">
+                {{ form.comment_on_member.errors }}
+                <tr>
+                    <td>{{ form.comment_on_member.label }}</td>
+                    <td>{{ form.comment_on_member }}</td>
+                </tr>
+            </table>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+    
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {{ form.media }}
+
+{% endblock %}
