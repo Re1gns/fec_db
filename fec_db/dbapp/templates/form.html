@@ -22,17 +22,7 @@
         <h2 style="text-align: center;">Fill out the Form</h2>
         <form method="post" enctype="multipart/form-data">
 
-            {% csrf_token %}
-            
-
-            <!-- Container for captured image -->
-            
-            <!-- Webcam capture button -->
-            <div style="margin: 10px auto; width: 100%;">
-                <button id="captureButton">Webcam capture</button>
-            </div>
-
-                       
+            {% csrf_token %}           
             <!-- Basic Information Section -->
             <caption><strong>Basic Information</strong></caption>
             <table class="table table-striped" border="3" style="margin-bottom: 20px; width: 100%; border-color: navy;">
@@ -40,11 +30,16 @@
                 {{ form.image.errors }}
                 <tr>
                     <td>{{ form.image.label_tag }}</td>
-                    <td>                    
-                        <div class="widget_search" style="height: 200px; width: 200px" id="webcamContainer">
+                    <td>
+                        <!-- Container for captured image -->                    
+                        <div class="widget_search border border-color" style="height: 200px; width: 200px" id="webcamContainer">
                             <img height="170" src="">
                         </div>
-                        {{ form.image }}
+                        <!-- Webcam capture button -->
+                        <div style="margin: 10px auto; width: 100%;">
+                            <button class="btn btn-primary" id="captureButton"> capture</button>
+                            {{ form.image }}
+                        </div>
                     </td>
                     
                 </tr>
